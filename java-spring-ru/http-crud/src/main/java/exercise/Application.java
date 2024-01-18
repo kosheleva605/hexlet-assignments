@@ -27,9 +27,9 @@ public class Application {
     }
 
     // BEGIN
-    @GetMapping("/posts") // список всех постов
-    public List<Post> index(@RequestParam(defaultValue = "10") Integer limit) {
-        return posts.stream().limit(limit).toList();
+    @GetMapping("/posts") // список постов
+    public List<Post> index(@RequestParam(defaultValue = "10")  Integer limit, @RequestParam(defaultValue = "0") Integer pages) {
+        return posts.subList((pages * limit), ((pages + 1) * limit));
     }
     @GetMapping("/posts/{id}") // просмотр конкретного поста
     public Optional<Post> show(@PathVariable String id) {
@@ -61,9 +61,6 @@ public class Application {
     public void destroy(@PathVariable String id) {
         posts.removeIf(p -> p.getId().equals(id));
     }
-    @GetMapping("/posts") // список постов
-    public List<Post> index(@RequestParam(defaultValue = "10")  Integer limit, @RequestParam(defaultValue = "0") Integer pages) {
-        return posts.subList((pages * limit), ((pages + 1) * limit));
-    }
+
     // END
 }
