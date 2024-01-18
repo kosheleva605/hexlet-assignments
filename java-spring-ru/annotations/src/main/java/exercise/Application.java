@@ -9,7 +9,7 @@ public class Application {
         var address = new Address("London", 12345678);
 
         // BEGIN
-        SpringApplication.run(Application.class, args);
+
         Arrays.stream(Address.class.getDeclaredMethods()).forEach(it -> {
             if (it.isAnnotationPresent(Inspect.class))
                 System.out.println("Method " + it.getName() + " returns a value of type " + it.getReturnType().getSimpleName());
