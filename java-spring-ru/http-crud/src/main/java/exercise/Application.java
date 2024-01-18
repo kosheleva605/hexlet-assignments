@@ -28,9 +28,12 @@ public class Application {
 
     // BEGIN
     @GetMapping("/posts") // список постов
-    public List<Post> index(@RequestParam(defaultValue = "10")  Integer limit, @RequestParam(defaultValue = "0") Integer pages) {
+    public List<Post> index(
+            @RequestParam(defaultValue = "10") Integer limit,
+            @RequestParam(defaultValue = "0") Integer pages) {
         return posts.subList((pages * limit), ((pages + 1) * limit));
     }
+
     @GetMapping("/posts/{id}") // просмотр конкретного поста
     public Optional<Post> show(@PathVariable String id) {
         var post = posts.stream()
@@ -38,11 +41,13 @@ public class Application {
                 .findFirst();
         return post;
     }
+
     @PostMapping("/posts") // создание нового поста
     public Post create(@RequestBody Post post) {
         posts.add(post);
         return post;
     }
+
     @PutMapping("/posts/{id}") // обновление поста
     public Post update(@PathVariable String id, @RequestBody Post data) {
         var maybePost = posts.stream()
