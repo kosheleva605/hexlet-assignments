@@ -1,6 +1,5 @@
 package exercise;
 
-import java.net.URI;
 import java.util.List;
 
 import org.springframework.boot.SpringApplication;
@@ -48,8 +47,8 @@ public class Application {
 
     @PostMapping("/posts") // создание нового поста
     public ResponseEntity<Post> create(@RequestBody Post post) {
-        posts.add(post);
-        return ResponseEntity.status(HttpStatus.CREATED).build();
+        var newpost = posts.add(post);
+        return ResponseEntity.status(HttpStatus.CREATED).body(post);
     }
 
     @PutMapping("/posts/{id}") // обновление поста
@@ -62,7 +61,7 @@ public class Application {
             post.setId(data.getId());
             post.setTitle(data.getTitle());
             post.setBody(data.getBody());
-            return ResponseEntity.ok().build();
+            return ResponseEntity.ok().body(post);
         }
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
