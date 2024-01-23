@@ -24,8 +24,8 @@ public class Application {
     @Autowired
     private UserProperties admins;
     @GetMapping("/admins")
-    public List<String> index() {
-        
+    public List<String> admins() {
+
         return admins.stream().sorted().toList();
     }
     // END
