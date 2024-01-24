@@ -26,7 +26,7 @@ public class Application {
     @GetMapping("/admins")
     public List<String> admins() {
 
-        return admins.getName().stream().sorted().toList();
+        return admins.getAdmins().stream().sorted().toList();
     }
     // END
 
