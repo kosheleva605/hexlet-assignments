@@ -23,10 +23,12 @@ public class Application {
     // BEGIN
     @Autowired
     private UserProperties admins;
+
     @GetMapping("/admins")
     public List<String> admins() {
-
-        return admins.getAdmins().stream().sorted().toList();
+        return users.stream()
+                .filter(it -> admins.getAdmins().contains(it.getEmail()))
+                .map(it -> it.getName()).sorted().toList();
     }
     // END
 
