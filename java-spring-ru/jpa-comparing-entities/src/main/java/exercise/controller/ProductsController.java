@@ -38,7 +38,7 @@ public class ProductsController {
 
         return productRepository
                 .save(product)
-                .orElseThrow(() -> new ResourceAlreadyExistsxception("Product already exists"));
+                .orElseThrow(() -> new ResourceAlreadyExistsException("Product already exists"));
     }
     // END
 
