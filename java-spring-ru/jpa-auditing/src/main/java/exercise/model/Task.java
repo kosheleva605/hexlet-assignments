@@ -14,10 +14,11 @@ import java.time.LocalDate;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import jakarta.persistence.GeneratedValue;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
 @Table(name = "task")
-@EntityListeners(Task.class)
+@EntityListeners(AuditingEntityListener.class)
 @Getter
 @Setter
 public class Task {
