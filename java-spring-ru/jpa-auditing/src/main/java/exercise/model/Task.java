@@ -27,7 +27,7 @@ public class Task {
     private long id;
 
     private String title;
-    private int description;
+    private String description;
 
     @CreatedDate
     private LocalDate createdAt;
