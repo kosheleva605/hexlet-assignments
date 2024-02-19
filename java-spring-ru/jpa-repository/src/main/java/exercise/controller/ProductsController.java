@@ -22,11 +22,9 @@ public class ProductsController {
     private ProductRepository productRepository;
 
     // BEGIN
-    private static final String MAX_INT_AS_STRING = Integer.toString(Integer.MAX_VALUE);
-    private static final String MIN_INT_AS_STRING = Integer.toString(Integer.MIN_VALUE);
     @GetMapping(path = "")
-    public List<Product> sorted(@RequestParam(required = false, defaultValue = MIN_INT_AS_STRING) Integer min,
-                                @RequestParam(required = false, defaultValue = MAX_INT_AS_STRING) Integer max) {
+    public List<Product> sorted(@RequestParam(required = false, defaultValue = Integer.MIN_VALUE + "") int min,
+                                @RequestParam(required = false, defaultValue = Integer.MAX_VALUE + "") int max) {
         return productRepository.findByPriceBetweenOrderByPrice(min, max);
     }
 
