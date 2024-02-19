@@ -27,7 +27,7 @@ public class ProductsController {
     @GetMapping(path = "")
     public List<Product> sorted(@RequestParam(required = false, defaultValue = MIN_INT_AS_STRING) Integer min,
                                 @RequestParam(required = false, defaultValue = MAX_INT_AS_STRING) Integer max) {
-        return productRepository.findByPriceBetweenOrderByPrice(min, max)
+        return productRepository.findByPriceBetweenOrderByPrice(min, max);
     }
 
     // END
