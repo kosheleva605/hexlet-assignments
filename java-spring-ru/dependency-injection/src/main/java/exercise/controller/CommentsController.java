@@ -50,14 +50,17 @@ public class CommentsController {
 
         return commentRepository.save(comment);
     }
+
     @PostMapping(path = "")
     @ResponseStatus(HttpStatus.CREATED)
     public Comment create(@RequestBody Comment comment) {
 
         return commentRepository.save(comment);
     }
+
     @DeleteMapping(path = "/{id}")
     public void delete(@PathVariable long id) {
         commentRepository.deleteById(id);
     }
+}
 // END

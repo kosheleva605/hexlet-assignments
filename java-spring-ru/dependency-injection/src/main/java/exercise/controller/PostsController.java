@@ -67,4 +67,5 @@ public class PostsController {
         postRepository.deleteById(id);
         commentRepository.deleteByPostId(id);
     }
+}
 // END
