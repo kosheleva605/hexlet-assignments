@@ -26,6 +26,7 @@ public class PostsController {
 
     @Autowired
     private PostsRepository postRepository;
+
     @Autowired
     private CommentRepository commentRepository;
 
@@ -45,7 +46,7 @@ public class PostsController {
     }
 
     @PutMapping(path = "/{id}")
-    public Post update(@RequestParam long id, @RequestBody Post post) {
+    public Post update(@PathVariable long id, @RequestBody Post post) {
         var postOld = postRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Post with id " + id + " not found"));
 

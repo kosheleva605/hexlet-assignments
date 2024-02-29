@@ -42,7 +42,7 @@ public class CommentsController {
     }
 
     @PutMapping(path = "/{id}")
-    public Comment update(@RequestParam long id, @RequestBody Comment comment) {
+    public Comment update(@PathVariable long id, @RequestBody Comment comment) {
         var commentOld = commentRepository.findById(id)
                 .orElseThrow(() -> new ResourceNotFoundException("Comment with id " + id + " not found"));
 
