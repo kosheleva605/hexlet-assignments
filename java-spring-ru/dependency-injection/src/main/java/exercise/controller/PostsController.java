@@ -18,6 +18,7 @@ import java.util.List;
 import exercise.model.Post;
 import exercise.repository.PostRepository;
 import exercise.exception.ResourceNotFoundException;
+import exercise.repository.CommentRepository;
 
 // BEGIN
 @RestController
@@ -25,7 +26,7 @@ import exercise.exception.ResourceNotFoundException;
 public class PostsController {
 
     @Autowired
-    private PostsRepository postRepository;
+    private PostRepository postRepository;
 
     @Autowired
     private CommentRepository commentRepository;
